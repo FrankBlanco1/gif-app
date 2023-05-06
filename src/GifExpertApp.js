@@ -14,12 +14,12 @@ export const GifExpertApp = () => {
 
     // }
 
-    console.log(categories)
-
     return <Fragment>
         <h2>GifExpertApp</h2>
 
-        <AddCategory/>
+        <AddCategory 
+            setCategories={setCategories}
+        />
 
         <hr />
 
