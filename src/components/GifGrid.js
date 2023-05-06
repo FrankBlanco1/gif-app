@@ -1,11 +1,12 @@
 
 import React, { Fragment, useState, useEffect } from 'react'
+import { GifGridItem } from './GifGridItem';
 
 // api_key = lzkj9sxJUc5oxbFw4vlB31jMUsd1Z0AV
 
 export const GifGrid = ({category}) => {
 
-    const [count, setCount] = useState(0);
+    const [images, setImages] = useState([]);
 
     // use Effect recibe dos parametros:
     // -El primero es una funcion a ejecutarde estas dependecias depende que se vuelva a ejecutar la primera funcion
@@ -35,6 +36,7 @@ export const GifGrid = ({category}) => {
         });
         
         console.log(gifs);
+        setImages(gifs);
 
     }
 
@@ -43,8 +45,18 @@ export const GifGrid = ({category}) => {
     return (
         <Fragment> 
             <h3>{category}</h3>
-            <h3>{count}</h3>
-            <button onClick={() => {setCount((c) => {return c + 1})}}></button>
+            <ol>
+                {
+                    images.map( (img, i) => {
+                        return (
+                            <GifGridItem
+                                key={img.id}
+                                {...img}
+                            />
+                        )
+                    })
+                }
+            </ol>
         </Fragment>
     )
 }
