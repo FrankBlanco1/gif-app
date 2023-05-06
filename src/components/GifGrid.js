@@ -1,9 +1,21 @@
 
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 
 // api_key = lzkj9sxJUc5oxbFw4vlB31jMUsd1Z0AV
 
 export const GifGrid = ({category}) => {
+
+    const [count, setCount] = useState(0);
+
+    // use Effect recibe dos parametros:
+    // -El primero es una funcion a ejecutarde estas dependecias depende que se vuelva a ejecutar la primera funcion
+    // -El segundo una lista de dependencias, 
+    // En este caso cunado el segundo argumento es [], se ejecuta la funcion una sola vez al inicio
+    useEffect( () => {
+
+        getGifs();
+
+    }, []);
 
     const getGifs = async() => {
 
@@ -26,11 +38,13 @@ export const GifGrid = ({category}) => {
 
     }
 
-    getGifs();
+    //getGifs();
 
     return (
         <Fragment> 
             <h3>{category}</h3>
+            <h3>{count}</h3>
+            <button onClick={() => {setCount((c) => {return c + 1})}}></button>
         </Fragment>
     )
 }
