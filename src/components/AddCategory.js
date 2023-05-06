@@ -8,7 +8,6 @@ export const AddCategory = ({setCategories}) => {
 
     const handleInputChange = (event) => {
 
-        console.log(event.target.value);
         setInputValue(event.target.value);
 
     }
@@ -22,7 +21,7 @@ export const AddCategory = ({setCategories}) => {
             // El callback tiene el estado anterior del state (categories) por lo que no se necesita
             // la referencia
             setCategories((categories) => {
-                return [...categories, inputValue];
+                return [inputValue, ...categories];
             });
             setInputValue('');
 

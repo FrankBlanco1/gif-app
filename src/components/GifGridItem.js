@@ -2,8 +2,6 @@ import React, { Fragment } from 'react'
 
 export const GifGridItem = ({id, title, url}) => {
 
-    console.log(id, title, url)
-
     return (
         <div className='card '>
             <img 

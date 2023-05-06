@@ -13,6 +13,12 @@ input {
   color: grey;
 }
 
+.card-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .card {
   align-content: center;
   border: 1px solid grey;
@@ -29,10 +35,4 @@ input {
 
 .card img {
   max-height: 170px;
-}
-
-.card-grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 }
