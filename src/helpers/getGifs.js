@@ -11,7 +11,6 @@ export const getGifs = async(category) => {
         return {
             id: img.id,
             title: img.title,
-            // ? es para preguntar si viene el campo images
             url: img.images?.downsized_medium.url
         }
     });

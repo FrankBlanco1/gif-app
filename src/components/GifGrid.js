@@ -1,33 +1,19 @@
 
 import React from 'react'
 import { useFetchGifs } from '../hooks/useFetchGifs'
-//import { GifGridItem } from './GifGridItem';
-//import { getGifs } from '../helpers/getGifs';
+import { GifGridItem } from './GifGridItem';
 
 // api_key = lzkj9sxJUc5oxbFw4vlB31jMUsd1Z0AV
 
 export const GifGrid = ({category}) => {
 
-    // const [images, setImages] = useState([]);
-    const {loading} = useFetchGifs();
-
-    // // use Effect recibe dos parametros:
-    // // -El primero es una funcion a ejecutarde estas dependecias depende que se vuelva a ejecutar la primera funcion
-    // // -El segundo una lista de dependencias, 
-    // // En este caso cunado el segundo argumento es [], se ejecuta la funcion una sola vez al inicio
-    // useEffect( () => {
-
-    //     getGifs(category).then( (images) => {
-    //         setImages(images);
-    //     });
-
-    // }, [category]);
+    const {data:images, loading} = useFetchGifs(category);
 
     return (
         <>
             <h3>{category}</h3>
-            {loading? 'Loading...' : 'Complete load'}
-            {/* <div className='card-grid'> 
+            {loading && <p>Loading...</p>}
+            <div className='card-grid'> 
                 <ol>
                     {
                         images.map( (img, i) => {
@@ -40,7 +26,7 @@ export const GifGrid = ({category}) => {
                         }) 
                     }
                 </ol>
-            </div> */}
+            </div>
         </>
     )
 }

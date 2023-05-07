@@ -17,8 +17,6 @@ export const GifExpertApp = () => {
 
         <ol>
             {
-                // map retorna dos objetos: el elemento y su indice
-                // los key deben ser ids unicos, generalmente id de elementos de bases de datos
                 categories.map((category, i) => {
                     return (
                         <GifGrid
