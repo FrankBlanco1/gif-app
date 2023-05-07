@@ -21,7 +21,7 @@ export const useFetchGifs = (category) => {
             }, 3000)
         });
 
-    }, []);
+    }, [category]);
 
     return state;
 
