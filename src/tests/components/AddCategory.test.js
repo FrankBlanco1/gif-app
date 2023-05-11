@@ -1,4 +1,4 @@
-import {render, screen, fireEvent } from "@testing-library/react";
+import {render, screen, fireEvent, getByRole } from "@testing-library/react";
 import { AddCategory } from "../../components/addCategory";
 
 describe("Testing the AddCategory component", () => {
@@ -39,7 +39,7 @@ describe("Testing the AddCategory component", () => {
     test("Should not post the information on submit 'couse inputValue is empty", () => {
 
         const setCategories = jest.fn();
-        render(<AddCategory setCategories={setCategories}/>)
+        render(<AddCategory setCategories={setCategories}/>);
 
         const input = screen.getByRole('textbox');
         fireEvent.submit(input);
@@ -47,6 +47,32 @@ describe("Testing the AddCategory component", () => {
         // Para saber si se llamo la funcion setCategories
         expect(setCategories).not.toHaveBeenCalled();
         expect(input.value).toBe('');
+
+    });
+
+    test('Should call the setCategory function adn clean the input value', () => {
+
+        const setCategories = jest.fn();
+        render(<AddCategory setCategories={setCategories}/>);
+        const new_category = 'Dark Souls';
+
+        const input = screen.getByRole('textbox');
+        fireEvent.change(input, {target: {value : new_category}});
+
+        // Comprobar que cambia el valor del input
+        expect(input.value).toBe(new_category);
+
+        fireEvent.submit(input)
+
+        // Conmprobar que llamo al setCategory porque es una categoria valida (no '')
+        // y luego pone el valor del input ''
+        expect(setCategories).toBeCalledTimes(1);
+        expect(input.value).toBe('');
+
+        // Para aseggurar que el argumento del setCategory sea una funcion
+        // recordemos que en el componente el setCategories annade una categoria mediante 
+        // el useState 
+        expect(setCategories).toHaveBeenCalledWith( expect.any(Function) );
 
     });
 
