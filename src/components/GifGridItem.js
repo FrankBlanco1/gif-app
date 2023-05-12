@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 export const GifGridItem = ({title, url}) => {
 
     return (
-        <div className='card '>
+        // Aqui le puse data-testid para poder preguntar por este elemento desde las pruebas
+        <div className='card ' data-testid='GifGridItem'>
             <img 
                 src={url} 
                 alt={title}
