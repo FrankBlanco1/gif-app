@@ -1,5 +1,5 @@
 import {render, screen, fireEvent, getByRole } from "@testing-library/react";
-import { AddCategory } from "../../components/addCategory";
+import { AddCategory } from "../../components/AddCategory";
 
 describe("Testing the AddCategory component", () => {
 

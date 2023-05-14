@@ -11,7 +11,7 @@ export const GifGrid = ({category}) => {
     const {data:images, loading} = useFetchGifs(category);
 
     return (
-        <>
+        <div data-testid = 'GifGrid'>
             <h3>{category}</h3>
 
             {loading && <p>Loading...</p>}
@@ -30,7 +30,7 @@ export const GifGrid = ({category}) => {
                     }
                 </ol>
             </div>
-        </>
+        </div>
     )
 }
 
