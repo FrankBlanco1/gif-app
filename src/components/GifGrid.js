@@ -17,18 +17,16 @@ export const GifGrid = ({category}) => {
             {loading && <p>Loading...</p>}
 
             <div className='card-grid'> 
-                <ol>
-                    {
-                        images.map( (img, i) => {
-                            return (
-                                <GifGridItem
-                                    key={img.id}
-                                    {...img}
-                                />
-                            )
-                        }) 
-                    }
-                </ol>
+                {
+                    images.map( (img, i) => {
+                        return (
+                            <GifGridItem
+                                key={img.id}
+                                {...img}
+                            />
+                        )
+                    }) 
+                }
             </div>
         </div>
     )
